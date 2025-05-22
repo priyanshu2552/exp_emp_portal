@@ -6,12 +6,13 @@ const port=5000
 const authRoutes = require("./routes/authRoutes");
 const employeeRoutes = require("./routes/employeeRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+app.use(express.json());
 require('dotenv').config();
 const connectDB = require('./config/db'); 
 connectDB()
 
 app.use(cors());
-app.use(express.json());
+
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/employee", employeeRoutes);

@@ -1,0 +1,205 @@
+/* Base styles — already included in your current file */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-wrapper {
+    display: flex;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+.login-left {
+    flex: 1;
+    padding: 60px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-left h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subheading {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.role-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.role-toggle button {
+    padding: 8px 16px;
+    border: 1px solid #aaa;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.role-toggle .active {
+    background-color: #5d2dfd;
+    color: white;
+    border-color: #5d2dfd;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.form-options a {
+    text-decoration: none;
+    color: #5d2dfd;
+}
+
+.login-form button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #5d2dfd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #4b23c4;
+}
+
+.signup-prompt {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #444;
+}
+
+.signup-prompt a {
+    color: #5d2dfd;
+    text-decoration: none;
+}
+
+.message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login-right {
+    flex: 1;
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+}
+
+.login-right img {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+}
+
+
+/* ✅ RESPONSIVE STYLES BELOW */
+
+/* Tablets */
+@media (max-width: 600px) {
+    .login-wrapper {
+        flex-direction: column;
+    }
+
+    .login-left, .login-right {
+        flex: none;
+        width: 100%;
+        padding: 40px 30px;
+        border-radius: 0;
+    }
+
+    .login-right {
+        border-radius: 0;
+    }
+
+    .login-right img {
+        width: 60%;
+        max-width: 300px;
+    }
+
+    .login-left h2 {
+        font-size: 28px;
+    }
+
+    .subheading {
+        font-size: 14px;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    .login-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .login-left {
+        padding: 30px 20px;
+    }
+
+    .login-form input,
+    .login-form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .role-toggle {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .login-right {
+        padding: 30px 20px;
+    }
+
+    .login-right img {
+        width: 80%;
+        max-width: 250px;
+    }
+}
