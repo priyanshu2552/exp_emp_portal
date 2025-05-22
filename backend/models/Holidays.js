@@ -6,7 +6,7 @@ const holidaySchema = new mongoose.Schema({
     description: { type: String },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'Employee',
         required: true
     }
 });

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const leaveRequestSchema = new mongoose.Schema({
   employee: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Employee',
     required: true
   },
   startDate: { type: Date, required: true },
