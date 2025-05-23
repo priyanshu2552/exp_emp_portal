@@ -1,0 +1,59 @@
+.leave-list-table-wrapper {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  min-width: 600px;
+}
+
+.leave-table th,
+.leave-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.leave-table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.leave-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .leave-table th,
+  .leave-table td {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .leave-list-table-wrapper {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .leave-table {
+    min-width: 100%;
+  }
+
+  .leave-table th,
+  .leave-table td {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+}

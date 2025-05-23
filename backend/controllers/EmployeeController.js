@@ -3,12 +3,55 @@ const LeaveRequest = require("../models/LeaveRequest");
 const Expense = require("../models/Expense");
 
 // Get profile details
+
 exports.getProfile = async (req, res) => {
   try {
+    // Get the basic user profile
     const user = await Employee.findById(req.user.id).select("-password");
-    res.status(200).json(user);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Count pending leave requests
+    const pendingLeaveRequests = await LeaveRequest.countDocuments({
+      employee: req.user.id,
+      status: "pending",
+    });
+
+    // Count pending expense claims
+    const pendingExpenseClaims = await Expense.countDocuments({
+      employee: req.user.id,
+      status: "pending",
+    });
+
+    res.status(200).json({
+      ...user.toObject(), // converts Mongoose doc to plain object
+      pendingLeaveRequests,
+      pendingExpenseClaims,
+    });
   } catch (error) {
+    console.error("Error in getProfile:", error);
     res.status(500).json({ message: "Error fetching profile details" });
+  }
+};
+
+
+exports.getExpenses = async (req, res) => {
+  try {
+    const expenses = await Expense.find({ employee: req.user.id }).sort({ date: -1 });
+    res.status(200).json(expenses);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching expenses" });
+  }
+};
+exports.getLeaves = async (req, res) => {
+  try {
+    const leaves = await LeaveRequest.find({ employee: req.user.id }).sort({ startDate: -1 });
+    res.status(200).json(leaves);
+  } catch (error) {
+    console.error("Error fetching leave requests:", error);
+    res.status(500).json({ message: "Error fetching leave requests" });
   }
 };
 

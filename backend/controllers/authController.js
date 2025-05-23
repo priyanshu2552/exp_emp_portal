@@ -34,8 +34,10 @@ exports.loginAdmin = async (req, res) => {
       expiresIn: "1d",
     });
 
-    res.json({ success: true, token, admin });
+    // ✅ Rename admin to user in response
+    res.json({ success: true, token, user: admin });
   } catch (error) {
     res.status(500).json({ success: false, message: "Login failed" });
   }
 };
+

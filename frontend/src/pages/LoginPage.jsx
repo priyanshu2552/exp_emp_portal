@@ -23,14 +23,18 @@ export default function LoginPage() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ email, password }),
-            });
+            }); console.log(response)
             const data = await response.json();
 
-            if (data.success) {
+            if (data.success && data.user) {
+
                 setMessage("Login successful");
                 localStorage.setItem("token", data.token);
+                localStorage.setItem("user", JSON.stringify(data.user)); // ✅ Only if defined
+
                 window.location.href = `/${role}/dashboard`;
             } else {
+                console.log("hi")
                 setMessage(data.message || "Login failed");
             }
         } catch (error) {
@@ -72,7 +76,7 @@ export default function LoginPage() {
                     {message && <p className="message">{message}</p>}
                 </form>
 
-               
+
             </div>
 
             <div className="login-right">

@@ -1,0 +1,128 @@
+/* Sidebar.css */
+.sidebar {
+  background: linear-gradient(135deg, #0088ff, #6dd5fa);
+  width: 100%;
+  color: white;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.profile-section {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+.user-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: white;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+}
+
+.dropdown-toggle {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-link {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(3px);
+}
+
+.sidebar-link i {
+  width: 20px;
+  text-align: center;
+}
+
+.logout-link {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.logout-link:hover {
+  background: rgba(255, 107, 107, 0.2);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    padding: 1rem;
+  }
+  
+  .dropdown-toggle {
+    display: block;
+  }
+  
+  .sidebar-links {
+    display: none;
+  }
+  
+  .sidebar-links.open {
+    display: flex;
+    margin-top: 1rem;
+  }
+  
+  .profile-img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .user-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    width: 250px;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+}
